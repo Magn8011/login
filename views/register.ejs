@@ -1,0 +1,66 @@
+<head>
+    <style>
+        body {
+        background-color: darksalmon;
+        margin: 100px;
+        padding: 100px;
+    }
+    .name {
+        text-align: center;
+        margin-top: 10px;
+    }
+    .email {
+        text-align: center;
+        margin-top: 10px;
+    }
+    .password {
+        text-align: center;
+        margin-top: 10px;
+
+    }
+    .myDiv {
+        text-align: center;
+        color:maroon;
+        margin-top: 10px;
+
+    }
+    .button {
+        text-align: center;
+        margin-top: 10px;
+    }
+    .bruger {
+        text-align: center;
+        margin-top: 10px;
+
+    }
+</style>
+
+</head>
+<body>
+<div class="myDiv">
+<h1>Registrer</h1>
+</div>
+<form action = "/register" method="POST">
+
+<div class="name">
+    <label for="name"> Fulde navn </label>
+    <input type="text" id="name" name="name" required>
+</div>
+
+<div class="email">
+    <label for="email"> E-mailadresse </label>
+    <input type="email" id="email" name="email" required>
+</div>
+
+<div class="password">
+    <label for="password"> Kodeord </label>
+    <input type="password" id="password" name="password" required>
+</div>
+<div class="button">
+<button type="submit">Opret bruger</button>
+</div>
+</form>
+<div class="bruger">
+<a href="/login">Log ind</a>
+</div>
+</body>

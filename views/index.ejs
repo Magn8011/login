@@ -1,0 +1,89 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Produkt overblik</title>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <header>
+    <!-- I stedet for at oprette en klassisk button så bruger jeg "href" til at linke til en "ny side" -->
+    <!-- Dette gøres for alle user knapperne (delete, logout og update) -->
+    <div id="profileactions">
+      <a href="/logout">logout</a>
+      <a href="/updateuser">Update my profile</a>
+      <a href="/deleteuser">Delete my profile</a>
+    </div>
+  </header>
+  <h1>Du er nu logget ind, velkommen til siden</h1>
+  <!-- Det gøres også for varer knapperne som skal bruges, altså det link som skal kunne oprette varer) -->
+  <!-- Også det link som viser alle varerne i en liste, og som skal gøre det muligt at slette disse produkter -->
+
+  <div id="container">
+    <div id="categorier">
+
+      <% for(var i=0; i < categorylist.length; i++) { %>
+        <!-- jeg laver links til mine kategorier, via "a href" så påfører jeg en onclick function
+        tilføjer function "filterByCategory" og en parameter inde i den funktion '<%= categorylist[i] %>'
+      og det gør vi grundet templatesproget og så er selve funktionen linje 36 og 37  -->
+        <a href="#" onClick="filterByCategory('<%= categorylist[i] %>')"><%= categorylist[i] %></a>
+      <% } %> 
+      <a href="#" onClick="filterByCategory('')">show all</a>
+     
+      <script>
+        function filterByCategory(cat) {
+          $('tbody tr').show();
+          $('tbody tr').not("." + cat).hide();
+        }
+      </script>
+    </div>
+    <div id="productlist">
+      <div id="productactions">
+        <a href="/newproduct">Tilføj Produkt</a>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product price</th>
+            <th>Product category</th>
+            <th>Image</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(var i=0; i < productdata.length; i++) { %>
+            <tr class="<%= productdata[i].category %>">
+              <td>
+                <%= productdata[i].id %>
+              </td>
+              <td>
+                <%= productdata[i].name %>
+              </td>
+              <td>
+                <%= productdata[i].price %>
+              </td>
+              <td>
+                <%= productdata[i].category %>
+              </td>
+              <td>
+                <%= productdata[i].image %>
+              </td>
+              <td>
+                <a href="/editproduct/<%= productdata[i].id %>">edit/delete</a>
+
+              </td>
+
+            </tr>
+            <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

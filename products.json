@@ -1,0 +1,58 @@
+[
+    {
+        "id": "1",
+        "name": "Gryder",
+        "price": 1000,
+        "category": "kitchen",
+        "image": ""
+    },
+    {
+        "id": "2",
+        "name": "Biler",
+        "price": 2500,
+        "category": "Sparetime",
+        "image": ""
+    },
+    {
+        "id": "3",
+        "name": "Hugo Boss mens suit",
+        "price": 2000,
+        "category": "Clothes",
+        "image": ""
+    },
+    {
+        "id": "4",
+        "name": "Mobiltelefoner",
+        "price": 1500,
+        "category": "Sparetime",
+        "image": ""
+    },
+    {
+        "id": "5",
+        "name": "Cykler",
+        "price": 1500,
+        "category": "Sparetime",
+        "image": ""
+    },
+    {
+        "id": "6",
+        "name": "Støvler",
+        "price": 900,
+        "category": "Clothes",
+        "image": ""
+    },
+    {
+        "id": "7",
+        "name": "Højtaler",
+        "price": 700,
+        "category": "Sparetime",
+        "image": ""
+    },
+    {
+        "id": "8",
+        "name": "Knive",
+        "price": 500,
+        "category": "kitchen",
+        "image": ""
+    }
+]

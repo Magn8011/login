@@ -1,0 +1,74 @@
+<head>
+    <style>
+        body {
+            background-color: darksalmon;
+            margin: 100px;
+            padding: 100px;
+        }
+
+        .name {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .email {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .password {
+            text-align: center;
+            margin-top: 10px;
+
+        }
+
+        .myDiv {
+            text-align: center;
+            color: maroon;
+            margin-top: 10px;
+
+        }
+
+        .button {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .bruger {
+            text-align: center;
+            margin-top: 10px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="myDiv">
+        <h1>Produkt form</h1>
+    </div>
+    <form action="<%=posturl %>" method="POST">
+
+        <div class="name">
+            <label for="name"> Product Navn </label>
+            <input type="text" id="name" name="name" value="<%= product.name %>" required>
+        </div>
+
+        <div class="price">
+            <label for="price"> Pris </label>
+            <input type="text" id="price" name="price" value="<%= product.price %>" required>
+        </div>
+
+        <div class="category">
+            <label for="category"> Category </label>
+            <input type="text" id="category" name="category" value="<%= product.category %>" required>
+        </div>
+        <div class="button">
+            <button type="submit">Gem</button>
+        </div>
+
+        <div class="button">
+            <button type="button" onClick="window.location.href='/deleteproduct/<%= product.id %>'">Delete</button>
+        </div>
+    </form>
+</body>
