@@ -1,62 +1,28 @@
 <!DOCTYPE html>
-<head>
-  
-<link rel="stylesheet" href="login.css">
-<style>
-    body {
-        background-color: darksalmon;
-        margin: 100px;
-        padding: 100px;
-    }
-     .email {
-         text-align: center;
-         margin-top: 10px;
- 
-     }
-     .password {
-         text-align: center;
-         margin-top: 10px;
- 
-     }
-     .myDiv {
-         text-align: center;
-         color:maroon;
-         margin-top: 10px;
- 
-     }
-     .button {
-         text-align: center;
-         margin-top: 10px;
-     }
-     .bruger {
-         text-align: center;
-         margin-top: 10px;
- 
-     }
- </style>
-</head>
-
-<body>
-<div class="myDiv">
-<h1>Login</h1>
-</div>
-
-<form action = "/login" method="POST">
-
-<div class="email">
-    <label for="email"> E-mailadresse </label>
-    <input type="email" id="email" name="email" required>
-</div>
-
-<div class="password">
-    <label for="password"> Kodeord </label>
-    <input type="password" id="password" name="password" required>
-</div>
-<div class="button">
-<button type="submit">Log ind</button>
-</div>
-</form>
-<div class="bruger">
-<a href="/register">Opret en bruger</a>
-</div>
-</body>
+<html>
+  <head>
+    <title>Welkommen i Butikken - Login</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Velkommen!</h1>
+      <p>Login for at vedligeholde varer.</p>
+    </header>
+    <section>
+      <form action="/login" method="POST">
+        <a href="/">< Tilbage</a>
+        <p class="error"
+          ><% if (messages.error) { %> <%= messages.error %> <% } %></p
+        >
+        <h3>Login</h3>
+        <label for="email"> E-mailadresse </label>
+        <input type="text" id="email" name="email" required />
+        <label for="password"> Kodeord </label>
+        <input type="password" id="password" name="password" required />
+        <button type="submit">Log ind</button>
+        <a href="/register">Oprette ny profil</a>
+      </form>
+    </section>
+  </body>
+</html>

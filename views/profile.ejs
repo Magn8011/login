@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Profile</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  </head>
+  <body>
+    <form action="<%=posturl %>" method="POST">
+      <a href="/">< Tilbage</a>
+      <h1>Profil</h1>
+      <label for="name"> Fulde navn </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        value="<%= user.name %>"
+        required
+      />
+      <label for="email"> E-mailadresse </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        value="<%= user.email %>"
+        required
+      />
+      <% if (posturl !== '/profile') {%>
+      <label for="password"> Kodeord </label>
+      <input type="password" id="password" name="password" required />
+      <% } %>
+      <button type="submit">Gem</button>
+      <% if (posturl == '/profile') {%>
+      <a href="/deleteuser">Slet profil</a>
+      <% } else { %>
+      <a href="/login">Login</a>
+      <% } %>
+    </form>
+  </body>
+</html>
