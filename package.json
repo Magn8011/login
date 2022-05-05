@@ -1,10 +1,9 @@
 {
   "name": "programmering-model-9",
   "version": "1.0.0",
-  "description": "",
   "main": "Test.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "start": "nodemon server.js --ignore '/*.json'"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +13,7 @@
     "chai-http": "^4.3.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.2",
     "joi": "^17.4.2",
@@ -27,5 +27,14 @@
   "devDependencies": {
     "dotenv": "^10.0.0",
     "nodemon": "^2.0.15"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Magn8011/login.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Magn8011/login/issues"
+  },
+  "homepage": "https://github.com/Magn8011/login#readme",
+  "description": ""
 }
