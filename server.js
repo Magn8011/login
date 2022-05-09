@@ -202,11 +202,7 @@ app.post("/editproduct/:id", async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
-/*
-=======
 /**
->>>>>>> f1cdf90f827e2e800208204af72bcb5a3e0adbbc
   Slet produkt
  */
 
@@ -226,11 +222,7 @@ app.get("/deleteproduct/:id", (req, res) => {
   }
 });
 
-<<<<<<< HEAD
-/*
-=======
 /**
->>>>>>> f1cdf90f827e2e800208204af72bcb5a3e0adbbc
   Login
  */
 
@@ -251,11 +243,7 @@ app.post(
     failureFlash: true,
   })
 );
-<<<<<<< HEAD
-/*
-=======
 /**
->>>>>>> f1cdf90f827e2e800208204af72bcb5a3e0adbbc
   Logout
  */
 
@@ -265,11 +253,7 @@ app.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
-<<<<<<< HEAD
-/*
-=======
 /**
->>>>>>> f1cdf90f827e2e800208204af72bcb5a3e0adbbc
   Oprette Profil
  */
 
@@ -307,11 +291,7 @@ app.post("/register", async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
-/*
-=======
 /**
->>>>>>> f1cdf90f827e2e800208204af72bcb5a3e0adbbc
   Opdatere profil
   bruger profil kommer fra passport bibliotek og findes i req.user object.
  */
@@ -333,11 +313,7 @@ app.get("/profile", (req, res) => {
 
 app.post("/profile", async (req, res) => {
   if (req.isAuthenticated()) {
-<<<<<<< HEAD
-    /*
-=======
     /**
->>>>>>> f1cdf90f827e2e800208204af72bcb5a3e0adbbc
      Opdatere JSON data 
      */
     let rawdata = fs.readFileSync(loginfil);
@@ -361,11 +337,7 @@ app.post("/profile", async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
-/*
-=======
 /**
->>>>>>> f1cdf90f827e2e800208204af72bcb5a3e0adbbc
   Slette profil
  */
 
