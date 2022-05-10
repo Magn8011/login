@@ -26,7 +26,7 @@ if (process.env.NODE_ENV !== "production") {
     }
   });
   
-  //her angives der at den data der vises når man er logget ind, er ens egen data, altså ens egne ads/ announcements
+//her angives der at den data der vises når man er logget ind, er ens egen data, altså ens egne ads/ announcements
   router.post("/", async (req, res) => {
     if (req.isAuthenticated()) {
       const requestOptions = {
@@ -46,7 +46,7 @@ if (process.env.NODE_ENV !== "production") {
   });
   
   
-  //til "/profile/delete" funktionen på min index.js side. først laver jeg en app.get for at hente funktionen
+//til "/profile/delete" funktionen på min index.js side. først laver jeg en app.get for at hente funktionen
   router.get("/delete", async (req, res) => {
     if (req.isAuthenticated()) {
       const requestOptions = {

@@ -125,7 +125,7 @@ router.get("/announcements", function (req, res, next) {
 //angiver funktionen omkring kategorier
 router.get("/categories", function (req, res, next) {
   var sql = "select DISTINCT Category from Announcement";
-// variablen params, tildeles umildbart ikke noget data, men dette indsættes løbende
+//variablen params, tildeles umildbart ikke noget data, men dette indsættes løbende
   var params = [];
   db.all(sql, params, (err, rows) => {
     if (err) {
@@ -143,7 +143,7 @@ router.get("/categories", function (req, res, next) {
 
 
 // User API 
-//angiver hvordan man vælger users
+//angiver hvordan man vælger users, skrives i SQL, da databasen er sqlite og omskrives så til jsonformater
 router.get("/users", function (req, res, next) {
   var sql = "select * from User";
   var params = [];
