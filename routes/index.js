@@ -18,7 +18,7 @@ if (process.env.NODE_ENV !== "production") {
     var response = await fetch(process.env.API + '/categories');
     const CategoryData = await response.json();
     res.render("index.ejs", {
-  //Angiver produktdata og categorylist
+  //Angiver produktdata/ her kaldet "ads" og kategoridata.
       Ads: AdsData.data,
       categories: CategoryData.data,
       auth: req.isAuthenticated(),
