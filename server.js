@@ -93,9 +93,8 @@ app.get("/", (req, res) => {
   });
 });
 
-/**
+/*
   Ny produkt
- */
 
 app.get("/newproduct", (req, res) => {
   if (req.isAuthenticated()) {
@@ -221,7 +220,7 @@ app.get("/deleteproduct/:id", (req, res) => {
     res.redirect("/login");
   }
 });
-
+*/
 /**
   Login
  */
