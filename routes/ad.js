@@ -49,7 +49,7 @@ if (process.env.NODE_ENV !== "production") {
               user: req.user.Id,
             }),
           };
-// angiver at funktionerne skal vente med at køres før at nogle andre funktioner er kørt
+// angiver at funktionen "response" skal køres efter "requestOptions"
           const response = await fetch(process.env.API + "/ad",requestOptions);
           const data = await response.json();
   
