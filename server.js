@@ -44,7 +44,7 @@ try {
 const initializePassport = require("./passport-config");
 initializePassport(
   passport,
-  //angiv hvordan man finder id og email
+//angiv hvordan man finder id og email, og derved skal passport n
   (email) => users.find((user) => user.email === email),
   (id) => users.find((user) => user.id === id)
 );
