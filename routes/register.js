@@ -6,7 +6,8 @@ if (process.env.NODE_ENV !== "production") {
   var router = express.Router();
   const bcrypt = require("bcrypt");
   
-  /*Herunder opretter og kører jeg de forskellige kommandoer som mit "opret bruger" system skal kunne
+  /*
+  Herunder opretter og kører jeg de forskellige kommandoer som mit "opret bruger" system skal kunne
   jeg henviser også min side til min "register.ejs" hvor jeg blandt andet har mine html-koder 
   som skal være på min "opretbruger"-side. Hertil sørger jeg for at min kode redirecter en 
   nyoprettet bruger til login siden
@@ -20,7 +21,6 @@ if (process.env.NODE_ENV !== "production") {
       posturl: "/register",
     });
   });
-  
   
   router.post("/", async (req, res) => {
     try {
