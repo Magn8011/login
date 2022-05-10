@@ -1,7 +1,8 @@
 {
   "name": "programmering-model-9",
   "version": "1.0.0",
-  "main": "Test.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
     "start": "nodemon server.js --ignore '/*.json'"
   },
@@ -9,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
     "chai": "^4.3.6",
     "chai-http": "^4.3.0",
     "ejs": "^3.1.7",
@@ -21,20 +23,13 @@
     "method-override": "^3.0.0",
     "mocha": "^10.0.0",
     "nanoid": "^3.3.4",
+    "node-fetch": "2",
     "passport": "^0.5.2",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "sqlite3": "^5.0.8"
   },
   "devDependencies": {
     "dotenv": "^16.0.0",
     "nodemon": "^2.0.16"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Magn8011/login.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Magn8011/login/issues"
-  },
-  "homepage": "https://github.com/Magn8011/login#readme",
-  "description": ""
+  }
 }
