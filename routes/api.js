@@ -199,7 +199,7 @@ router.put("/user/:id", (req, res, next) => {
   };
   console.log(data);
   db.run(
-// bruger "COALESCE" som er en funktion i som kan bruges i SQL, den returnerer de værdier der ikke er "NULL" 
+// bruger "COALESCE" som er en funktion som kan bruges i SQL, den returnerer de værdier der ikke er "NULL" 
     `UPDATE User SET Name = COALESCE(?,name), Email = COALESCE(?,email) WHERE Id = ?`,
     [data.name, data.email, req.params.id],
     function (err, result) {
