@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin</title>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Admin</h1>
+      <p></p>
+    </header>
+    <section class="gray">
+      <% if (auth == true) {%>
+          <a href="/">Tilbage</a>  - 
+      <a href="/logout">Log ud</a>
+        <% } %>
+    </section>
+    <table id="ads">
+      <thead>
+        <tr>
+          <th>Navn</th>
+          <th>Email</th>
+          <th>Admin</th>
+          <th>Guld</th>                                
+          <th>Slet</th>                                
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i=0; i < users.length; i++) { %>
+          <td><%= users[i].Name %></td>
+          <td><%= users[i].Email %></td>
+          <td><a href="/admin/<%= users[i].Id %>/admin"><% if (users[i].Admin == 1) {%>ja<% } else { %> - <% } %></a></td>
+          <td><a href="/admin/<%= users[i].Id %>/gold"><% if (users[i].Gold == 1) {%>ja<% } else { %> - <% } %></a></td>
+          <td><a href="/profile/<%= users[i].Id %>">Redigere / Slet</a></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>   
+    <br />
+    <h1>Statistik</h1>
+    <br />
+    <style>
+      table.stat tr:first-child > td {color:green; font-weight: bold;}
+      </style>
+
+    <table id="ads" class="stat">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Antal</th>                                
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i=0; i < stat.length; i++) { %>
+        <tr>
+            <td><%= stat[i].Name %></td>
+          <td><%= stat[i].Count %></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>       
+  </body>
+</html>
