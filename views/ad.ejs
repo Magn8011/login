@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Produkt form</title>
+    <title>Ad form</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
   </head>
 
   <body>
     <form action="<%=posturl %>" method="POST" encType="multipart/form-data">
       <a href="/">< Tilbage</a>
-      <h1>Produkt</h1>
-      <label for="name"> Navn </label>
+      <h1>Announcement</h1>
+      <label for="name"> Title </label>
       <input
         type="text"
-        id="name"
-        name="name"
-        value="<%= product.name %>"
+        id="title"
+        name="title"
+        value="<%= ad.Title %>"
         required
       />
       <label for="price"> Pris </label>
@@ -22,7 +22,7 @@
         type="text"
         id="price"
         name="price"
-        value="<%= product.price %>"
+        value="<%= ad.Price %>"
         required
       />
       <label for="category"> Kategori </label>
@@ -30,17 +30,17 @@
         type="text"
         id="category"
         name="category"
-        value="<%= product.category %>"
+        value="<%= ad.Category %>"
         required
       />
       <label for="image"> Billede </label>
       <input type="file" id="image" name="image" />
 
       <button type="submit">Gem</button>
-      <% if (posturl !== '/newproduct') {%>
-      <a href="/deleteproduct/<%= product.id %>">Slet produkt</a>
+      <% if (posturl !== '/ad/new') {%>
+      <a href="/ad/<%= ad.Id %>/delete">Slet Announcement</a>
       <% } %>
-      <section><img src="<%= product.image %>" /></section>
+      <section><img src="<%= ad.Image %>" /></section>
     </form>
   </body>
 </html>

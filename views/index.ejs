@@ -28,17 +28,17 @@
     </section>
     <% if (auth == true) {%>
           <section>
-        <button type="button" class="new"><a href="/newproduct">Tilføj Produkt</a></button>
+        <button type="button" class="new"><a href="/ad/new">Tilføj Produkt</a></button>
     </section>
     <% } %>
     <section class="silver">
 
-          Kategorier: <% for(var i=0; i < categorylist.length; i++) { %>
+          Kategorier: <% for(var i=0; i < categories.length; i++) { %>
           <!-- jeg laver links til mine kategorier, via "a href" så påfører jeg en onclick function
-          tilføjer function "filterByCategory" og en parameter inde i den funktion '<%= categorylist[i] %>'
+          tilføjer function "filterByCategory" og en parameter inde i den funktion '<%= categories[i] %>'
         og det gør vi grundet templatesproget og så er selve funktionen linje 36 og 37  -->
-          <a href="#" onClick="filterByCategory('<%= categorylist[i] %>')"
-            ><%= categorylist[i] %></a
+          <a href="#" onClick="filterByCategory('<%= categories[i].Category %>')"
+            ><%= categories[i].Category %></a
           > - 
           <% } %>
           <a href="#" onClick="filterByCategory('')">Vis alle</a>
@@ -52,7 +52,7 @@
             }
           </script>
         </section>          
-        <table id="products">
+        <table id="ads">
           <thead>
             <tr>
               <th>Navn</th>
@@ -65,15 +65,15 @@
             </tr>
           </thead>
           <tbody>
-            <% for(var i=0; i < productdata.length; i++) { %>
-            <tr class="<%= productdata[i].category %>">
-              <td><%= productdata[i].name %></td>
-              <td class="price"><%= productdata[i].price %></td>
-              <td><%= productdata[i].category %></td>
-              <td class="image"><img src="<%= productdata[i].image %>"" class="image"</></td>
+            <% for(var i=0; i < Ads.length; i++) { %>
+            <tr class="<%= Ads[i].Category %>">
+              <td><%= Ads[i].Title %></td>
+              <td class="price"><%= Ads[i].Price %></td>
+              <td><%= Ads[i].Category %></td>
+              <td class="image"><img src="<%= Ads[i].Image %>"" class="image"</></td>
               <% if (auth == true) {%>
               <td>
-                <a href="/editproduct/<%= productdata[i].id %>">redigere/slet</a>
+                <a href="/ad/<%= Ads[i].Id %>/edit">redigere/slet</a>
               </td>
               <% } %>
             </tr>

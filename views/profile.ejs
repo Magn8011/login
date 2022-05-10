@@ -13,7 +13,7 @@
         type="text"
         id="name"
         name="name"
-        value="<%= user.name %>"
+        value="<%= user.Name %>"
         required
       />
       <label for="email"> E-mailadresse </label>
@@ -21,7 +21,7 @@
         type="email"
         id="email"
         name="email"
-        value="<%= user.email %>"
+        value="<%= user.Email %>"
         required
       />
       <% if (posturl !== '/profile') {%>
@@ -30,7 +30,7 @@
       <% } %>
       <button type="submit">Gem</button>
       <% if (posturl == '/profile') {%>
-      <a href="/deleteuser">Slet profil</a>
+      <a href="/profile/delete">Slet profil</a>
       <% } else { %>
       <a href="/login">Login</a>
       <% } %>
