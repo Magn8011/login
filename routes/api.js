@@ -141,7 +141,6 @@ router.get("/categories", function (req, res, next) {
 
 
 
-
 // User API 
 //angiver hvordan man vælger users, skrives i SQL, da databasen er sqlite og omskrives så til jsonformater
 router.get("/users", function (req, res, next) {
