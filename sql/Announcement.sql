@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS Announcement (
   Created DATETIME DEFAULT CURRENT_TIMESTAMP,
   UserId INTEGER
 );
---herunder ses tilfældig data, med de angivede parabler
+
 insert into Announcement (Id, Title, Price, Category, Location, Image, Created, UserId) values (1, 'Another Nine & a Half Weeks (Love in Paris) (9 1/2 Weeks II) (Another 9 1/2 Weeks)', 722, 'Drama', null, 'http://dummyimage.com/110x100.png/5fa2dd/ffffff', '2022-02-23 15:55:20', 1);
 insert into Announcement (Id, Title, Price, Category, Location, Image, Created, UserId) values (2, 'Drunks', 927, 'Drama', '164 40', 'http://dummyimage.com/213x100.png/cc0000/ffffff', '2021-12-10 16:26:31', 5);
 insert into Announcement (Id, Title, Price, Category, Location, Image, Created, UserId) values (3, 'Love That Boy', 559, 'Comedy', '5903', 'http://dummyimage.com/157x100.png/ff4444/ffffff', '2021-05-17 13:14:52', 6);

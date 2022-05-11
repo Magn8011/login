@@ -1,4 +1,8 @@
---viser bare at follow følger announcement, på userid og announcement id
+DROP TABLE IF EXISTS Follow;
+CREATE TABLE IF NOT EXISTS Follow (
+  UserId INTEGER,
+  AnnouncementId INTEGER
+);
 insert into Follow (UserId, AnnouncementId) values (2, 18);
 insert into Follow (UserId, AnnouncementId) values (7, 26);
 insert into Follow (UserId, AnnouncementId) values (5, 4);

@@ -1,6 +1,4 @@
---SQLite
-
---viser hvad at der skal vises af data, hvordan det skal vises, hvilken orden og hvad dette data er, f.eks. er "name" "text"
+-- SQLite
 DROP TABLE IF EXISTS User;
 CREATE TABLE IF NOT EXISTS User (
   Id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -18,11 +16,9 @@ CREATE TABLE IF NOT EXISTS Announcement (
   Category TEXT,
   Location TEXT,
   Image TEXT,
---tilføjer tid via "CURRENT_TIMESTAMP"
   Created DATETIME DEFAULT CURRENT_TIMESTAMP
   UserId INTEGER
 );
---anigver follow-funktionen
 DROP TABLE IF EXISTS Follow;
 CREATE TABLE IF NOT EXISTS Follow (
   UserId INTEGER,

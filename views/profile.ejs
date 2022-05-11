@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Profile</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
   </head>
   <body>
     <form action="<%=posturl %>" method="POST">
@@ -24,12 +24,12 @@
         value="<%= user.Email %>"
         required
       />
-      <% if (posturl !== '/profile') {%>
-      <label for="password"> Kodeord </label>
+      <% if (!posturl.includes('/profile')) {%>
+        <label for="password"> Kodeord </label>
       <input type="password" id="password" name="password" required />
       <% } %>
       <button type="submit">Gem</button>
-      <% if (posturl == '/profile') {%>
+      <% if (posturl.includes('/profile')) {%>
       <a href="/profile/delete">Slet profil</a>
       <% } else { %>
       <a href="/login">Login</a>

@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Butikken</title>
+    <title>Blå avis</title>
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
     ></script>
-    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery.numeric@1.0.0/jquery.numeric.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.2/dayjs.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
   </head>
 
   <body>
     <header>
       <!-- I stedet for at oprette en klassisk button så bruger jeg "href" til at linke til en "ny side" -->
       <!-- Dette gøres for alle user knapperne (delete, logout og update) -->
-      <h1>Butikken</h1>
-      <p>Velkommen til butikken, vi sælger mange forskellige varer: Blandt andet Biler, Mobiltelefoner, Tøj og Gryder</p>
+      <h1>Blå avis</h1>
+      <p>Velkommen til blå avisen, vi sælger mange forskellige varer: Biler, Mobiltelefoner, Tøj og Gryder</p>
     </header>
     <!-- Det gøres også for varer knapperne som skal bruges, altså det link som skal kunne oprette varer) -->
-    <!-- Også det link som viser alle varerne i en liste, og som skal gøre det muligt at slette disse produkter -->
+    <!-- Også det link som viser alle varerne i en liste, og som skal gøre det muligt at slette disse announcementer -->
     <section class="gray">
       <% if (auth == true) {%>
-      <a href="/profile">Redigere/slet</a> - 
-      <a href="/logout">Log ud</a>
+        <a href="/">Hjem</a> - 
+        <a href="/myads">Mine announcer</a> - 
+        <a href="/follow">Jeg følger</a> - 
+        <a href="/profile">Profil</a> - 
+      <a href="/logout">Log ud</a> 
+      <% if (admin == true) {%>
+       -  <a href="/admin">Admin</a>
+        <% } %>
       <% } else { %>
         <a href="/login">Login</a>
         <% } %>
     </section>
     <% if (auth == true) {%>
           <section>
-        <button type="button" class="new"><a href="/ad/new">Tilføj Produkt</a></button>
+        <button type="button" class="new"><a href="/ad/new">Tilføj Announcement</a></button>
     </section>
     <% } %>
-    <section class="silver">
-
+    <% if (url == "/") {%>
+      <section class="silver">
+      
           Kategorier: <% for(var i=0; i < categories.length; i++) { %>
           <!-- jeg laver links til mine kategorier, via "a href" så påfører jeg en onclick function
           tilføjer function "filterByCategory" og en parameter inde i den funktion '<%= categories[i] %>'
@@ -41,17 +51,13 @@
             ><%= categories[i].Category %></a
           > - 
           <% } %>
-          <a href="#" onClick="filterByCategory('')">Vis alle</a>
-  <!-- opretter script tags og skriver jquerykode deri  -->
-          <script>
-            function filterByCategory(cat) {
-              $("tbody tr").show();
-              $("tbody tr")
-                .not("." + cat)
-                .hide();
-            }
-          </script>
-        </section>          
+          <a href="#" onClick="filterByCategory('')">Nulstille</a>
+        </section>   
+        <section class="silver">
+          <label>Lokation</label><select id="filter-location"></select> - <label>Dato</label><select id="filter-created"></select> - <label>Pris mindre er</label><input id="filter-price" type="number"><button onClick="resetfilter()">Nulstille</button>
+        </section>   
+
+        <% } %>       
         <table id="ads">
           <thead>
             <tr>
@@ -59,19 +65,32 @@
               <th>Pris</th>
               <th>Kategori</th>
               <th>Billeder</th>
-              <% if (auth == true) {%>
-                              <th></th>
-                              <% } %>
+              <% if (auth == true && all == true) {%>
+                <th>Følg</th> 
+                <% } %>   
+              <% if (auth == true && all == false) {%>
+                <th></th>
+              <% } %>
+                                
             </tr>
           </thead>
           <tbody>
             <% for(var i=0; i < Ads.length; i++) { %>
-            <tr class="<%= Ads[i].Category %>">
+            <tr class="<%= Ads[i].Category %>" data-location="<%= Ads[i].Location %>" data-price="<%= Ads[i].Price %>" data-created="<%= Ads[i].Created %>">
               <td><%= Ads[i].Title %></td>
               <td class="price"><%= Ads[i].Price %></td>
               <td><%= Ads[i].Category %></td>
               <td class="image"><img src="<%= Ads[i].Image %>"" class="image"</></td>
-              <% if (auth == true) {%>
+              <% if (auth == true && all == true) {%>
+              <td>
+                <% if (Ads[i].Followed == 'FALSE') {%>
+                  <a href="/ad/<%= Ads[i].Id %>/follow">Følge</a> 
+                <% } else {%>
+                  <a href="/ad/<%= Ads[i].Id %>/unfollow">Følge ikke </a> 
+                <% } %>
+              </td>
+              <% } %>
+              <% if (auth == true && all == false) {%>
               <td>
                 <a href="/ad/<%= Ads[i].Id %>/edit">redigere/slet</a>
               </td>
@@ -81,5 +100,7 @@
           </tbody>
         </table>
     </section>
+    <script type="text/javascript" src="/filter.js"></script>
+
   </body>
 </html>

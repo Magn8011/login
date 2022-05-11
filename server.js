@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
-//henter en masse forskellige libraries, funktioner og moduler
+
 const express = require("express");
 const app = express();
 
@@ -25,7 +25,7 @@ var indexRouter = require("./routes/index");
 var profileRouter = require("./routes/profile");
 var registerRouter = require("./routes/register");
 var adRouter = require("./routes/ad");
-const { Server } = require("http");
+var adminRouter = require("./routes/admin");
 
 //sætter min template engine til at være "ejs"
 app.set("view-engine", "ejs");
@@ -43,8 +43,8 @@ app.use(
   })
 );
 
-//Vi bruger passport.initialize og passport.session til at holde vores loginserver kørende og validere brugerens autensitet
-//Passport Setup startes
+//bruger passport.initialize og passport.session til at holde min loginserver kørende og validere brugerens autensitet
+/** Passport Setup START **/
 
 passport.use(
   new LocalStrategy(function (username, password, done) {
@@ -73,7 +73,7 @@ passport.serializeUser(function (user, done) {
 
 passport.deserializeUser(function (id, done) {
   db.get(
-    "SELECT Id, Name, Email FROM User WHERE Id = ?",
+    "SELECT Id, Name, Email, Admin,Gold FROM User WHERE Id = ?",
     id,
     function (err, row) {
       if (!row) return done(null, false);
@@ -84,7 +84,7 @@ passport.deserializeUser(function (id, done) {
 app.use(passport.initialize());
 app.use(passport.session());
 
-//Passport Setup END 
+/** Passport Setup END **/
 
 app.use(express.static("assets"));
 
@@ -96,8 +96,8 @@ app.use("/", indexRouter);
 app.use("/profile", profileRouter);
 app.use("/register", registerRouter);
 app.use("/ad", adRouter);
-
-// Login 
+app.use("/admin", adminRouter);
+/** Login */
 
 app.get("/login", (req, res) => {
   res.render("login.ejs");
@@ -111,9 +111,8 @@ app.post(
   })
 );
 
-// Logout 
+/** Logout */
 app.get("/logout", (req, res) => {
-// ødelægger den oprettede 
   req.session.destroy();
   req.logout();
   res.redirect("/");
@@ -121,5 +120,3 @@ app.get("/logout", (req, res) => {
 
 //Her er porten hvorpå min localhost lytter, altså port 3010
 app.listen(3010);
-
-module.exports = app
