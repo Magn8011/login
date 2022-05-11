@@ -25,6 +25,7 @@ var indexRouter = require("./routes/index");
 var profileRouter = require("./routes/profile");
 var registerRouter = require("./routes/register");
 var adRouter = require("./routes/ad");
+const { Server } = require("http");
 
 //sætter min template engine til at være "ejs"
 app.set("view-engine", "ejs");
@@ -120,3 +121,5 @@ app.get("/logout", (req, res) => {
 
 //Her er porten hvorpå min localhost lytter, altså port 3010
 app.listen(3010);
+
+module.exports = app

@@ -4,7 +4,7 @@ if (process.env.NODE_ENV !== "production") {
   var express = require("express");
   var fetch = require("node-fetch");
   var router = express.Router();
-  
+// Admins kan hente data fra andre brugere, altså deres "UsersData" og "StatData"
   router.get("/", async (req, res) => {
     if (req.isAuthenticated() && req.user.Admin == 1) {
       var response = await fetch(process.env.API + "/users");
@@ -22,7 +22,8 @@ if (process.env.NODE_ENV !== "production") {
       res.redirect("/");
     }
   });
-  
+// viser at man igennem "session" hvor ens admin brugerskab er gemt, kan via PATCH få lov til at opdatere en anden brugers data, så
+// de også bliver admins
   router.get("/:id/admin", async (req, res) => {
     if (req.isAuthenticated() && req.user.Admin == 1) {
       const requestOptions = {
@@ -39,7 +40,7 @@ if (process.env.NODE_ENV !== "production") {
       res.redirect("/login");
     }
   });
-  
+//angiver at hvis man er "authenticated" og man er admin, så kan man via "PATCH" gøre andre brugere til gold brugere
   router.get("/:id/gold", async (req, res) => {
     if (req.isAuthenticated() && req.user.Admin == 1) {
       const requestOptions = {
