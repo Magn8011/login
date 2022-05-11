@@ -21,7 +21,7 @@ if (process.env.NODE_ENV !== "production") {
       posturl: "/register",
     });
   });
-  
+
   router.post("/", async (req, res) => {
     try {
       const hashedPassword = await bcrypt.hash(req.body.password, 10);
