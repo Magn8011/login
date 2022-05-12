@@ -25,7 +25,7 @@ describe('login', () => {
         it('should not login the user', (done) => {
             chai
                 .request(app)
-                .post('/login').set('content-type', 'application/json').send({ "username": "bogr123ddowgane0@wordpress.org", "password": "fHHZIf" })
+                .post('/login').set('content-type', 'application/json').send({ "username": "1230@wordpress.org", "password": "fHHZIf" })
                 .redirects(0).end((err, res)=>{
                    expect(res.header[`location`]).to.equal(`/login`)
                     done()
