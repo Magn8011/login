@@ -30,8 +30,7 @@
       <% } %>
       <button type="submit">Gem</button>
       <% if (posturl.includes('/profile')) {%>
-      <a href="/profile/delete">Slet profil</a>
-      <% } else { %>
+      <a href="<%=delurl %>">Slet profil</a>      <% } else { %>
       <a href="/login">Login</a>
       <% } %>
     </form>

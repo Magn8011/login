@@ -7,7 +7,6 @@ var router = express.Router();
 /**
   Opdatere profil
   bruger profil kommer fra passport bibliotek og findes i req.user object.
-  :? er en optional parameter i URL'en
  */
 
 router.get("/:id?", async (req, res) => {
@@ -21,6 +20,7 @@ router.get("/:id?", async (req, res) => {
     res.render("profile.ejs", {
       user: data.data,
       posturl: (req.user.Admin && req.params.id) ? "/profile/"+req.params.id : "/profile"  ,
+      delurl:  (req.user.Admin && req.params.id) ? "/profile/"+req.params.id+'/delete' : "/profile/"+req.user.id+"/delete" 
     });
   } else {
     res.redirect("/login");
@@ -56,7 +56,7 @@ router.post("/:id?", async (req, res) => {
 });
 
 //til "/profile/delete" funktionen på min index.js side. først laver jeg en app.get for at hente funktionen
-router.get("/:id?/delete", async (req, res) => {
+router.get("/:id/delete", async (req, res) => {
   if (req.isAuthenticated()) {
     const requestOptions = {
       method: "DELETE",
@@ -75,7 +75,7 @@ router.get("/:id?/delete", async (req, res) => {
       );
     }
     var data = await response.json();
-    res.redirect("/");
+    req.user.Admin ? res.redirect("/admin") : res.redirect("/");
   } else {
     res.redirect("/login");
   }
