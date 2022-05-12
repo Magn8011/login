@@ -44,7 +44,7 @@ app.use(
 );
 
 //bruger passport.initialize og passport.session til at holde min loginserver kørende og validere brugerens autensitet
-/** Passport Setup START **/
+// Passport Setup START 
 
 passport.use(
   new LocalStrategy(function (username, password, done) {
@@ -84,7 +84,7 @@ passport.deserializeUser(function (id, done) {
 app.use(passport.initialize());
 app.use(passport.session());
 
-/** Passport Setup END **/
+// Passport Setup END 
 
 app.use(express.static("assets"));
 
