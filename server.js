@@ -120,3 +120,5 @@ app.get("/logout", (req, res) => {
 
 //Her er porten hvorpå min localhost lytter, altså port 3010
 app.listen(3010);
+
+module.exports = app
