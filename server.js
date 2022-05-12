@@ -97,7 +97,7 @@ app.use("/profile", profileRouter);
 app.use("/register", registerRouter);
 app.use("/ad", adRouter);
 app.use("/admin", adminRouter);
-/** Login */
+// Login 
 
 app.get("/login", (req, res) => {
   res.render("login.ejs");
@@ -111,7 +111,7 @@ app.post(
   })
 );
 
-/** Logout */
+// Logout 
 app.get("/logout", (req, res) => {
   req.session.destroy();
   req.logout();
